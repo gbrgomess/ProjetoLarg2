@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -8,16 +8,19 @@ import { Container } from './styles';
 function Inicial() {
   return (
     <Container>
-      <p>Welcome Back</p>
+      <p className="welcome">Welcome Back! </p>
       <div className="painel">
         <Input placeholder="Email address" type="text" />
         <Input placeholder="Password" type="password" />
-        <Button />
+        <Button label="Login" />
 
       </div>
-
-      <p>Forgot your password?</p>
-      <p> Don&apos;t have an account? GetStarted</p>
+      <a href="ads" className="link1">Forgot your password?</a>
+      <a href="asd" className="link1">
+        Don&apos;t have an account?
+        {' '}
+        <strong>Get Started</strong>
+      </a>
 
     </Container>
 

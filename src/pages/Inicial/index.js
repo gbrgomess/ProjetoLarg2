@@ -1,26 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
+import Cadastro from '../../components/Cadastro';
+import Login from '../../components/Login';
 
-import Button from '../../components/Button';
-import Input from '../../components/Input';
 import { Container } from './styles';
 
 function Inicial() {
+  const [esconder, setEsconder] = useState(false);
   return (
     <Container>
-      <p className="welcome">Welcome Back! </p>
+      <img src={`${process.env.PUBLIC_URL}/email.png`} width="25" alt="logo" />
+      <h1>Welcome back!</h1>
       <div className="painel">
-        <Input placeholder="Email address" type="text" />
-        <Input placeholder="Password" type="password" />
-        <Button label="Login" />
+        {!esconder
+          ? <Login />
+          : <Cadastro />}
 
       </div>
-      <a href="ads" className="link1">Forgot your password?</a>
-      <a href="asd" className="link1">
-        Don&apos;t have an account?
-        {' '}
-        <strong>Get Started</strong>
-      </a>
+      <div className="footer">
+        <a href="ads" className="link1">Forgot your password?</a>
+        <button type="button" onClick={() => setEsconder(() => !esconder)}>
+          {' '}
+          Don&apos;t have an account?
+          {' '}
+          <strong>Get Started</strong>
+        </button>
+
+      </div>
 
     </Container>
 
